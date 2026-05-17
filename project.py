@@ -9,7 +9,6 @@ mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 
 # --- 1. FUZZY SYSTEM SETUP ---
-# Humne logic ko function mein daal diya taake clean rahay
 def get_fuzzy_system():
     distance = ctrl.Antecedent(np.arange(0, 201, 1), 'distance')
     speed = ctrl.Consequent(np.arange(0, 101, 1), 'speed')
@@ -84,10 +83,10 @@ if __name__ == "__main__":
                     speed_sim.compute()
                     calculated_speed = speed_sim.output['speed']
 
-                    # PDC: Speed distribute karein
+                    # PDC: Speed distribute 
                     q.put(calculated_speed)
 
-                    # Screen par output dikhayen
+                
                     cv2.putText(image, f"Fuzzy Speed: {calculated_speed:.1f}%", (10, 50), 
                                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
